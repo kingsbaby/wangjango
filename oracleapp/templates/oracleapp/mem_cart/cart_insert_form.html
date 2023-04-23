@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문 (장바구니) 입력 폼 화면:::</title>
+    <script type="text/javascript">
+        //취소하기 버튼 처리
+        function goBack(){
+            history.go(-1);
+        } 
+    </script>
+
+</head>
+<body>  
+       <h3>주문(장바구니) 입력 폼화면</h3>
+       <hr/>   
+    <form id="fm" name="fm" method="post" action="/oracle/cart_insert/">
+    {% csrf_token %}
+
+    <P>* 아이디 : <input type="text" name="cart_member" 
+        value="a001" required>
+    </P>
+    <P>* 상품코드 : 
+        <input type="text" name="cart_prod" 
+         value="P201000018" required>
+    </P>
+    <P>* 주문수량 : 
+        <input type="text" name="cart_qty" size="5" 
+             value="11" required> 
+    </P>
+    <P>* 주문번호 : 
+        <input type="text" name="cart_no" 
+             value="2023040100001" required>
+    </P>
+    <hr/>
+    <!-- 저장버튼 -->
+    <input type="submit" value="저장하기">
+    <!-- 취소버튼 -->
+    <input type="button" value="취소하기"
+            onclick="goBack()">
+
+</form>       
+
+</body>
+</html>

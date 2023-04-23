@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:::05_checkBox:::</title>
+
+    <script type="text/javascript">
+        function checkboxReload() {
+        fm = document.getElementById("fm")
+            for(i=0; i<fm.city.length; i++){
+                if(fm.city[i].checked == true){
+                fm.city[i].checked = false;
+                }
+            }
+        }
+        function allReload(){
+            location.reload();
+        }
+    </script>
+
+
+</head>
+<body>
+    <h3>05_checkBox</h3>
+    <hr/>
+<form id="fm" name="fm" method="post" action="/front/">
+    {% csrf_token %}
+        <!-- 체크박스
+         -하나의 항목에 대해서 여러개의 버튼의 name은 동일하게 처리
+         - value 값은 지정되어 있어야함
+         = 선택된 값 한개가 name 이름으로 전송됨 -->
+    지역 선택 :
+    <input type="checkbox" name="city" value="서울">서울
+    <input type="checkbox" name="city" value="경기">경기
+    <input type="checkbox" name="c" value="광주">광주
+    <input type="checkbox" name="c" value="부산">부산
+
+    <hr/>
+    <input type="button" value="체크박스 초기화"
+          onclick= "checkboxReload()">
+    <input type="button" value="전체 초기화"
+         onclick= "allReload()"> 
+    
+
+</body>
+</html>

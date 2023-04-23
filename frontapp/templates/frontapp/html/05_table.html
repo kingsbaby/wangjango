@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html - table 처리</title>
+    <style>
+        table {
+            /* 테이블의 테두리 라인 설정 */
+            border: 1px solid red;
+
+             /* 테이블의 테두리 라인 설정 */
+            border-collapse: collapse;
+        }
+        th ,td{
+            /*안쪽 여백 추가*/
+            padding: 15px;
+
+            /*가운데 정렬하기*/
+            text-align: center;
+        }
+
+        th {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h3>html - table 처리</h3>
+    <hr/>
+    <!--table :행렬 데이터 그리기-->
+    <table border="1">
+        <!--tr 행(row)을 담당-->
+        <tr>
+            <!-- th:컬럼 제목(header)-->
+            <th width="100"> 아이디</th>
+            <th width="100"> 이 름</th>
+            <th>주  소</th>
+            </tr>
+        
+            <!--데이터 추가하기-->
+        <tr>
+            <!--td : 각 컬럼에 데이터 넣기-->
+            <td>a001</td>
+            <td>홍길동</td>
+            <td>광주광역시 소촌동1-1</td>
+
+        </tr>
+        <tr>
+            <td>b001</td>
+            <td>이순신</td>
+            <td>대전광역시 유성군1-1</td>
+        </tr>
+        <tr>
+            <td colspan="2">b001</td>
+            <td>대전광역시 유성군1-1</td>
+        </tr>
+        <tr>
+            <td rowspan="2">b001</td>
+            <td>이순신1</td>
+            <td>대전광역시 유성군1-1</td>
+
+        </tr>
+        <tr>
+            <td>이순신2</td>
+            <td>대전광역시 유성군1-1</td>
+
+        </tr>
+    </table>
+</head>
+<body>
+    
+</body>
+</html>

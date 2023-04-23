@@ -1,0 +1,27 @@
+{% load static %}
+{% comment %} %끝에 공백 XX {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - link 처리</title>
+</head>
+<body>
+    <h3>HTML -link처리 </h3>
+    <hr/>
+    <a href="http://www.daum.net">duam.net으로</a>
+    <a href="http://www.naver.com">naver.com으로</a>
+    <a href="http://www.google.com">google.com으로</a>
+    <a href="/front/01_html/">
+        <img src="/static/frontapp/images/img1.jpg" 
+            width="300" height="80">
+        <img src="{% static 'frontapp/images/img1.jpg' %}"
+            width="300" height="80">
+     </a>
+    <a href="#">google.com으로</a>  
+    {% comment %} #은 아무것도 호출안함 {% endcomment %}
+
+</body>
+</html>

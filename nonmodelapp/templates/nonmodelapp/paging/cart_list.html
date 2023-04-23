@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문 (장바구니) 전체 목록:::</title>
+    <!-- bootstrap.min.css 적용하기-->
+    <link href="{% static 'nonmodelapp/bootstrap/css/bootstrap.min.css' %}"
+            rel="stylesheet">
+
+    <!-- jQuery적용하기 -->
+    <script type="text/javascript"
+            src="{% static 'nonmodelapp/js/jquery-3.6.4.min.js' %}">
+    </script>
+    <script type="text/javascript">
+        //상세보기 처리하기
+        function goView(cart_no, cart_prod){
+            //alert("cart_no");
+            //alert("cart_prod");
+            url = "/nonmodel/cart_view/?";
+            url = url + "cart_no=" + cart_no;
+            url = url + "&cart_prod=" + cart_prod;
+            alert(url);
+            location.href = url;
+        }
+
+        //입력화면으로가기
+        function goCreate(){
+            //alert("입력화면 호출...")    //나오는지 먼저 확인
+            location.href = "/oracle/cart_insert_form"
+        }
+    </script>
+
+</head>
+<body>
+<div class="container text-center" style="width:100%">
+    <h3>주문(장바구니) 전체 목록 </h3>
+</div>
+<hr/>
+
+<div class="container" style="width:100%">
+    <!-- 등록하기 버튼 생성하기 -->
+    <button onclick="goCreate()">등록하기</button>
+<hr/>
+
+    <!-- 행렬의 2차원 데이터를 표현할 수 있는 태그 : table태그 
+         tr : 행을 의미
+         td or th : 열을 의미 
+    -->
+
+<table class="table">
+        <!-- 첫번째 tr영역에는 컬럼명이 들어갑니다.  -->
+    <tr>
+        <th>주문번호</th>
+        <th>회원아이디</th>
+        <!-- <th>상품코드</th>
+        <th>주문수량</th> -->
+    </tr>
+    <!-- 두번째 tr영역부터는 각 컬럼에 맞는 데이터 넣기 -->
+    {% for d in cart_list %}
+    <tr>
+        <td><a href="javascript:goView('{{d.cart_no}}', '{{ d.cart_prod }}');">
+                {{ d.cart_no }}</a></td>
+        <td>{{ d.cart_member }}</td>
+        {% comment %} <td>{{ d.cart_prod }}</td>
+        <td>{{ d.cart_qty }}</td> {% endcomment %}
+    </tr>
+    {% endfor %}
+    </table>
+    </div>
+   
+
+    <!-- 페이징 처리하기  -->
+<div class="container text-center" style="width:100%">
+    <div class="row">
+        <div class="col">
+         <nav aria-label="Page navigation example">
+            <ul class="pagination" 
+                style="justify-content: center;">
+            <!-- 이전 페이지 처리 영역  -->
+            {% if is_prev %}
+                <li class="page-item">
+                    <a class="page-link" 
+                        href="/nonmodel/cart_list_page/?page={{start_page | add:"-10"}}" 
+                        aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+            <!-- 페이지 번호처리 영역(1~10까지 보여주기)  -->
+            {% for i in page_range %}
+                <li class="page-item">
+                    {% if i == now_page %}
+                    <strong>
+                        <a class="page=link" href="#"
+                            style="color:black;">
+                        </a>    
+                    </strong>
+                    
+
+                    <a class="page-link" 
+                        href="#">{{ i }}</a>
+                    {% else %}
+                         <a class="page-link" 
+                        href="/nonmodel/cart_list_page/?page={{ i }}">{{ i }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+         
+            
+            <!-- 다음 페이지 처리 영역  -->
+            {% if is_next %}
+            <li class="page-item">
+                <a  class="page-link" 
+                    href="/nonmodel/cart_list_page/?page={{start_page | add:"10"}}" 
+                    aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            {% endif %}
+            </ul>
+        </nav>
+    </div>
+    <!-- Bootstrap bootstrap.bundle.min.js 적용하기 -->
+    <script type="text/javascript"
+    src="{% static 'nonmodelapp/bootstrap/js/bootstrap.bundle.min.js' %}">
+</script>
+</body>
+</html>
+

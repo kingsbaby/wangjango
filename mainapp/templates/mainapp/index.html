@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<!-- HTML 문서의 정보가 최초에 읽혀지는 영역
+ - 문서 제목(title) : 브라우저 탭 이름과 동일함
+ - css, javascript, 메타정보 등이 정의되는 부분
+ -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: Main Index Page :::</title>
+    <script type="text/javascript">
+      //로그아웃 버튼 처리하기
+      function goLogout(){
+        location.href = "/nonmodel/logout_chk/";
+      }
+    </script>
+</head>
+<!-- 브라우저에 보여지는 모든것...
+  - css, javascript 정의도 가능
+ -->
+<body>
+<h3> 사이트 메인 페이지 </h3>
+  <!-- 제목 태그 -->
+  <!-- <h1>::: Index Page h1 :::</h1>
+  <h2>::: Index Page h2 :::</h2>
+  <h3>::: Index Page h3 :::</h3>
+  <h4>::: Index Page h4 :::</h4>
+  <h5>::: Index Page h5 :::</h5> -->
+
+  <!-- 주석 -->
+  <!-- 선긋기 -->
+  <hr/>
+  <!-- 로그인/로그아웃 처리하기 --> 
+  {% if request.session.ses_mem_id == None %}
+    <form id="fm" name="fm" method="post" action="/nonmodel/login_chk/">
+      {% csrf_token %}
+        아이디 :   <input type="text" name ="mem_id" required size="15">
+        패스워드 :   <input type="password" 
+                            name ="mem_pass" required size="15">
+        <input type="submit" value ="로그인">
+  </form>
+  {% else %}
+    {{ request.session.ses_mem_id }}({{ request.session.ses_mem_name }})님
+    환영합니다.!! 
+    
+    <!-- 로그아웃 버튼 만들기 -->
+    <button onclick="goLogout()">로그아웃</button>
+  {% endif %}
+
+  <hr/>
+
+    <!-- 페이지 이동 : 링크 처리
+      url : http://127.0.0.1:8000/first/
+      root경로 : 
+    -->
+    FirstApp : <a href="/first/">[바로가기]</a>
+    <br/>
+    SecondApp : <a href="/second/">[바로가기]</a>
+    <br>
+    MainApp : <a href="/main/main/">[바로가기]</a>
+    <br>
+    FrontApp : <a href="/front/">[바로가기]</a>
+    <br>
+    OracleApp : <a href="/oracle/">[바로가기]</a>
+    <br>
+    NonmodelApp : <a href="/nonmodel/">[바로가기]</a>
+    <br>
+    ThirdApp : <a href="/third/">[바로가기]</a>
+
+</body>
+</html>

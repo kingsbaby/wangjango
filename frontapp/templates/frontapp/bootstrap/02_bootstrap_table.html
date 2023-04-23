@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: bootstrap_table Page :::</title>
+
+    <h3>bootstrap_table</h3>
+    
+    <hr/>
+    
+    <!-- bootstrap.min.css 적용하기-->
+    <link href="{% static 'frontapp/bootstrap/css/bootstrap.min.css' %}"
+            rel="stylesheet">
+
+    <!-- jQuery적용하기 -->
+    <script type="text/javascript"
+            src="{% static 'frontapp/js/jquery-3.6.4.min.js' %}">
+    </script>
+  <table class="table">
+        <thead>
+                <tr>
+                <td scope="col">no</td>
+                <td scope="col">first</td>
+                <td scope="col">last</td>
+                <td scope="col">etc</td>
+                </tr>
+        </thead>    
+        <tbody>    
+        <tr>
+                <th>1</th>
+                <td>f1</td>
+                <td>l1</td>
+                <td>e1</td>
+        </tr>
+        <tr>
+                <th>2</th>
+                <td>f2</td>
+                <td>l2</td>
+                <td>e2</td>
+        </tr>
+        </tbody>  
+  </table>
+</head>
+<body>
+ 
+    <!-- Bootstrap bootstrap.bundle.min.js 적용하기 -->
+    <script type="text/javascript"
+            src="{% static 'frontapp/bootstrap/js/bootstrap.bundle.min.js' %}">
+    </script>
+</body>
+</html>

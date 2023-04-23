@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 주문 (장바구니) 입력 폼 화면:::</title>
+    <script type="text/javascript">
+        //취소하기 버튼 처리
+        function goBack(){
+            history.go(-1);
+        } 
+
+        //저장하기 > POST방식
+        function goInsertPost(){
+            // alert("getgetget");
+            //form태그 정보 가지고오기 
+            //- form태그가 감싸고 있는 내부 정보 모두 접근가능
+            // -정보 : nome을 가지고있는 값들을 의미
+            fm = document.getElementById("fm");
+            alert(fm.cart_member.value);
+             // 요청할 경로 지정
+            fm.action = "/oracle/cart_insert/";
+            
+            // 요청 경로로 전송 시키기
+            fm.submit();
+        }
+
+        //get방식의 location으로 전송하기
+        function goInsertGet(){
+            //alert("gogo");
+            //전송할 정보 추출하기
+            fn = document.getElementById("fm");
+            cart_member     = fm.cart_member.value;
+            cart_prod       = fm.cart_prod.value;
+            cart_qty       = fm.cart_qty.value;
+            cart_no       = fm.cart_no.value;
+
+            url = "/oracle/cart_insert/?";
+            url = url + "cart_member=" + cart_member;
+            url = url + "&cart_prod=" + cart_prod;
+            url = url + "&cart_qty=" + cart_qty;
+            url = url + "&cart_no=" + cart_no;
+
+            alert(url);
+            location.href = url;
+         }
+
+
+
+    </script>
+
+</head>
+<body>  
+       <h3>주문(장바구니) 입력 폼화면</h3>
+       <hr/>   
+    <!-- <form id="fm" name="fm" method="post" action="/oracle/cart_insert/"> -->
+    <!-- <form id="fm" name="fm" method="post" action="#"> -->
+    <form id="fm" name="fm" method="get" action="/oracle/cart_insert/">
+    {% csrf_token %}
+
+    <P>* 아이디 : <input type="text" name="cart_member" 
+        value="a001" required>
+    </P>
+    <P>* 상품코드 : 
+        <input type="text" name="cart_prod" 
+         value="P201000018" required>
+    </P>
+    <P>* 주문수량 : 
+        <input type="text" name="cart_qty" size="5" 
+             value="11" required> 
+    </P>
+    <P>* 주문번호 : 
+        <input type="text" name="cart_no" 
+             value="2023040100001" required>
+    </P>
+    <hr/>
+    <!-- 저장버튼 -->
+    <input type="submit" value="저장하기">
+    <input type="button" value="저장하기(BUTTON)-POST" onclick="goInsertPost()">
+    <input type="button" value="저장하기(BUTTON)-GET" onclick="goInsertGet()">
+    <!-- 취소버튼 -->
+    <input type="button" value="취소하기"
+            onclick="goBack()">
+
+</form>       
+
+</body>
+</html>

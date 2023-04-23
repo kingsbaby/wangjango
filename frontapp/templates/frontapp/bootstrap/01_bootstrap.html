@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:::bootstrap Page:::</title>
+
+    <!-- bootstrap.min.css 적용하기 -->
+    <link href="{% static 'frontapp\bootstrap\css\bootstrap.min.css' %}"
+            rel="stylesheet">
+
+    <!-- jquery.min.css 적용하기 -->
+    <script typr="text/javascript"
+            src="{% static 'frontapp/js/jquery-3.6.4.min.js' %}">
+    </script>       
+</head>
+<body>
+    <h3>bootstrap01</h3>
+    <hr/>
+
+    <p>
+        [부트스트랩(bootstrap)] <br/>
+        -html, css. javascript를 이용해서 코드를 이미 만들어 놓은 라이브러리<br/>
+        -사용자는 bootstrap 홈페이지에서 필요한 코드를 복사하여사용<br/>
+        -수정할 부분 : 링크, 주소나, 텍스트 내용등에 대한 수정만 하면ㄷ 됨<br/>
+        - 단점 : 태그 내에 class 속성을 사용하기에,<br/>
+                 개인이 생성한 class 속성의 이름과 중복되면 작동이 안되는 경우 있음<br/>
+                 (class 이름 정의시 bootstrap 이름과 중복되지 않도록 유의)<br/>
+               : 코드가 좀 낳음(부트스트랩 코드 수정시 불편..)
+    </p>
+
+    <p class="h1">
+        [부트스트랩(bootstrap)] <br/>
+        -html, css. javascript를 이용해서 코드를 이미 만들어 놓은 라이브러리<br/>
+        -사용자는 bootstrap 홈페이지에서 필요한 코드를 복사하여사용<br/>
+        -수정할 부분 : 링크, 주소나, 텍스트 내용등에 대한 수정만 하면ㄷ 됨<br/>
+        - 단점 : 태그 내에 class 속성을 사용하기에,<br/>
+                 개인이 생성한 class 속성의 이름과 중복되면 작동이 안되는 경우 있음<br/>
+                 (class 이름 정의시 bootstrap 이름과 중복되지 않도록 유의)<br/>
+               : 코드가 좀 낳음(부트스트랩 코드 수정시 불편..)
+    </p>
+
+
+    <!-- bootstrap.min.css 적용하기 -->
+    <script type= "text/javascript"
+            src= "{% static 'frontapp/bootstrap/js/bundle.min.js' %}">
+    </script>
+
+
+</body>
+</html>
