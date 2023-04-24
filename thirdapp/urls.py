@@ -12,6 +12,9 @@ urlpatterns = [
     ### http://127.0.0.1:8000/third/cart_list/
     path('test/', views.getTest),
 
+    ### http://127.0.0.1:8000/third/include_view/
+    path('include_view/', views.include_view),
+
 
 
 ]

@@ -16,5 +16,11 @@ def getTest(request) :
     return render(request,
                   "thirdapp/test.html",
                   {})
+############페이징 처리
 
-# Create your views here.
+def include_view(request) :
+
+    return render(request,
+                  "thirdapp/include/include_view.html",
+                  {})
+

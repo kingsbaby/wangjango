@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 페이징 처리하기 (extends):::</title>
+</head>
+<body>
+    <h3> 페이징 처리하기 (extends) </h3>
+    <hr/>
+    <!-- include를 이용하여 외부코드(html) 불러들이기 -->
+    <!-- 상단 : 네비게이션 메뉴(카테고리 메뉴) -->
+    {% block menu_view  %}
+    
+    {% endblock %} 
+    <hr/>
+        <!-- 상단 : 네비게이션 메뉴(카테고리 메뉴) -->
+    {% block body_view  %}
+    
+    {% endblock %} 
+    <hr/>        
+   <!-- 중앙 : 메인내용 -->
+    {% include 'nonmodelapp/include/04_footer.html' %}
+    <hr/>
+
+
+</body>
+</html>

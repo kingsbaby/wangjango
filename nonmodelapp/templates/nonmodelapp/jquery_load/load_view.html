@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 비동기 방식 페이지 처리 (jquery-load):::</title>
+    <!-- jquery 자바스크립트 라이브러리 정의하기 -->
+    <script title="text/javascript"
+            src = "{% static 'nonmodelapp/js/jquery-3.6.4.min.js' %}">
+     </script>
+
+    <script title="text/javascript">
+        //동기 방식의 링크 처리(페이지 전환이 됨)
+        function goLoad_View(url){
+            //alert(url);
+            location.href = "/nonmodel/" + url ; 
+        }
+
+        //jquery 비동기 방식의 링크처리( 페이지 전환 안됨)
+        function changeLoadView(url){
+            // load() : 해당 링크의 내용을 
+            // $("id") : id 영역에 출력시킴..
+            // alert(url)
+            $("#load_view").load("/nonmodel/" + url);
+        }
+     </script>
+</head>
+<body>
+    <h3>비동기 방식 페이지 처리 (jquery-load)</h3>
+    <hr/>
+    <!--비동기 방식으로 불러들일 데이터 출력부분  -->
+    <div id="load_view">
+    비동기 방식으로 불러들일 데이터 출력부분
+    </div>
+    <hr/>
+    <h3>동기방식의 페이지 처리 방식(화면 전환됨)</h3>
+    <button onclick="goLoad_View('load_view1/')">load_view1</button>
+    <button onclick="goLoad_View('load_view2/')">load_view2</button>
+    <button onclick="goLoad_View('load_view3/')">load_view3</button>
+
+    <hr/>
+    <h3>비동기방식의 페이지 처리 방식(화면 전환됨)</h3>
+    <button onclick="changeLoadView('cart_list_page/')">load_view1</button>
+    <button onclick="changeLoadView('load_view2/')">load_view2</button>
+    <button onclick="changeLoadView('load_view3/')">load_view3</button>
+    <button onclick="changeLoadView('load_view3/')">load_view3</button>
+   
+</body>
+</html>

@@ -496,3 +496,75 @@ def setFileDown(request) :
     ### 브라우저에서 파일 다운로드 시키기 
     return fu.fileDownload()
     #return HttpResponse("go go")
+
+#### [페이지 내에 코드포함 처리]
+def include_view(request) :
+      return render(request,
+                    "nonmodelapp/include/include_view.html",
+                {})
+
+#### [페이지 내에 코드포함 처리]
+def include_view2(request) :
+      return render(request,
+                    "nonmodelapp/include/include_view2.html",
+                {})
+
+#### [페이지 내에 실행결과 포함 처리] : extends] ###
+
+### main extends 화면
+def extends_view(request) :
+      return render(request,
+                    "nonmodelapp/extends/extends_view.html",
+                {})
+
+### 블록 1
+def block_view1(request) :
+      return render(request,
+                    "nonmodelapp/extends/01_block_view.html",
+                {})
+
+### 블록 2
+def block_view2(request) :
+      return render(request,
+                    "nonmodelapp/extends/02_block_view.html",
+                {})
+
+### 블록 3
+def block_view3(request) :
+      return render(request,
+                    "nonmodelapp/extends/03_block_view.html",
+                {})
+
+### 블록 - mem_list
+def block_mem_list(request) :
+    mem_list =mem.getMemberList()
+    return render(request,
+                    "nonmodelapp/extends/mem_list.html",
+                {"mem_list":mem_list})
+
+#### [비동기방식 처리] : extends] ###
+   
+### main extends 화면
+def load_view(request) :
+    return render(request,
+                    "nonmodelapp/jquery_load/load_view.html",
+                {})
+
+def load_view1(request) :
+    return render(request,
+                    "nonmodelapp/jquery_load/load_view1.html",
+                {})
+
+def load_view2(request) :
+    return render(request,
+                    "nonmodelapp/jquery_load/load_view2.html",
+                {})
+
+def load_view3(request) :
+    return render(request,
+                    "nonmodelapp/jquery_load/load_view3.html",
+                {})
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::: 페이지 코드 포함(include):::</title>
+</head>
+<body>
+    <h3>페이지 코드 포함(inlcude)</h3>
+     <hr/>
+
+    <!-- include를 이용하여 외부코드(html) 불러들이기 -->
+    <!-- 상단 : 네비게이션 메뉴(카테고리 메뉴) -->
+    {% include 'nonmodelapp/include/01_title.html' %}
+
+    <!-- 상단 : 네비게이션 메뉴(카테고리 메뉴) -->
+    {% include 'nonmodelapp/include/02_nav.html' %}
+
+    <!-- 상단 : 서브페이지의 네비게이션 메뉴(있는 경우) -->
+    {% include 'nonmodelapp/include/03_view.html' %}
+
+     <!-- 중앙 : 메인내용 -->
+    {% include 'nonmodelapp/include/04_footer.html' %}
+
+
+</body>
+</html>
